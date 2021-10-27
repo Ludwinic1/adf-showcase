@@ -1,0 +1,9 @@
+{
+	"name": "adf-showcase-dev",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "870c2cec-6939-4655-8898-aad4819694b9",
+		"tenantId": "2aa8e0e2-e629-4970-b9d6-d534a9ac3386"
+	}
+}
