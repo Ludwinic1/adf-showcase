@@ -1,0 +1,10 @@
+{
+	"name": "LS_KEY_VALUT",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://kv-njl-dev.vault.azure.net/"
+		}
+	}
+}

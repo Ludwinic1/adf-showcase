@@ -1,0 +1,20 @@
+{
+	"name": "PL_WAIT_15",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait 15",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 15
+				}
+			}
+		],
+		"folder": {
+			"name": "Wait_Pipelines"
+		},
+		"annotations": []
+	}
+}
