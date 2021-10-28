@@ -1,1 +1,21 @@
-
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-showcase-dev"
+		},
+		"LS_SQL_DB_connectionString": {
+			"value": ""
+		},
+		"LS_KEY_VALUT_properties_typeProperties_baseUrl": {
+			"value": "https://kv-njl-dev.vault.azure.net/"
+		},
+		"containerUri": {
+			"value": "https://linkedtemplatestoragenjl.blob.core.windows.net/armartifacts"
+		},
+		"containerSasToken": {
+			"value": "?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2021-10-28T22:14:04Z&st=2021-10-28T14:14:04Z&spr=https&sig=VtPMkxNlH8rm7A7wGCtSo57q5HlOrHx4kjHRQvI4Rw0%3D"
+		}
+	}
+}
