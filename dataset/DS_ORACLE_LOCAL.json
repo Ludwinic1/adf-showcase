@@ -1,0 +1,19 @@
+{
+	"name": "DS_ORACLE_LOCAL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Oracle1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Oracle"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SYSTEM",
+			"table": "FIRST_TABLE"
+		}
+	}
+}
