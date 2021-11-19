@@ -1,0 +1,27 @@
+{
+	"name": "PL_COPY_DATA_ORACLE_TO_ADLS",
+	"properties": {
+		"activities": [
+			{
+				"name": "Oracle to ADLS",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"enableStaging": false
+				}
+			}
+		],
+		"folder": {
+			"name": "Oracle"
+		},
+		"annotations": []
+	}
+}
