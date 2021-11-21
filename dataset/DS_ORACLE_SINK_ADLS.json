@@ -2,7 +2,7 @@
 	"name": "DS_ORACLE_SINK_ADLS",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage2",
+			"referenceName": "LS_ADLS_ORACLE",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
