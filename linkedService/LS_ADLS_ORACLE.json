@@ -1,0 +1,10 @@
+{
+	"name": "LS_ADLS_ORACLE",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://storageoraclenjl.dfs.core.windows.net/"
+		}
+	}
+}
