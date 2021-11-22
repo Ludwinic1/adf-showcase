@@ -1,0 +1,29 @@
+{
+	"name": "DS_SQL_SCHEMA_MAPPING_TABLE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Azure_SQL"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "schemaid",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "jsonSchema",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "schema_mapping2"
+		}
+	}
+}
