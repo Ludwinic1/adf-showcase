@@ -1,0 +1,40 @@
+{
+	"name": "DS_AZURE_SQL_ORACLE_SINK_TABLE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Azure_SQL"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "other",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "num_col",
+				"type": "decimal",
+				"precision": 7,
+				"scale": 2
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "oracle_sink"
+		}
+	}
+}
