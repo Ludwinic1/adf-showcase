@@ -1,0 +1,23 @@
+{
+	"name": "DF_TRANSFORM",
+	"properties": {
+		"folder": {
+			"name": "Transform Test DF"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_ORACLE_2_TABLE",
+						"type": "DatasetReference"
+					},
+					"name": "OracleInput"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> OracleInput"
+		}
+	}
+}
