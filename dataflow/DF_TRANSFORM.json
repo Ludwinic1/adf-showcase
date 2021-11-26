@@ -21,7 +21,7 @@
 					"name": "AdditionalColumn"
 				}
 			],
-			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> OracleInput\nOracleInput derive(Added_column = 1) ~> AdditionalColumn"
+			"script": "source(output(\n\t\tID as integer,\n\t\tname as string,\n\t\tother as integer,\n\t\tnum_col as integer\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> OracleInput\nOracleInput derive(Added_column = 1,\n\t\tother = toString(other)) ~> AdditionalColumn"
 		}
 	}
 }
