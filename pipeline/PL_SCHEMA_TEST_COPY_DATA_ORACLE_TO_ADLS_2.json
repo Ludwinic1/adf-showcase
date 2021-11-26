@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Oracle to ADLS",
+				"name": "Oracle to Azure SQL",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
