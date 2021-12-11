@@ -5,11 +5,38 @@
 		"factoryName": {
 			"value": "adf-showcase-dev"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
 		"LS_SQL_DB_connectionString": {
 			"value": ""
 		},
+		"Oracle1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://datalake1njl.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kv-njl-dev.vault.azure.net/"
+		},
+		"LS_ADLS_ORACLE_properties_typeProperties_url": {
+			"value": "https://storageoraclenjl.dfs.core.windows.net/"
+		},
 		"LS_KEY_VALUT_properties_typeProperties_baseUrl": {
 			"value": "https://kv-njl-dev.vault.azure.net/"
+		},
+		"dataFactory_properties_globalParameters_GP_KV_NAME_value": {
+			"value": "LS_DYNAMIC_KV_NAME"
+		},
+		"dataFactory_location": {
+			"value": "centralus"
+		},
+		"dataFactory_identity_type": {
+			"value": "SystemAssigned"
 		},
 		"containerUri": {
 			"value": ""

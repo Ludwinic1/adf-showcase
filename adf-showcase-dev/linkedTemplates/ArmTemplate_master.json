@@ -7,13 +7,49 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-showcase-dev"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
 		"LS_SQL_DB_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_SQL_DB'"
 		},
+		"Oracle1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Oracle1'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalake1njl.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kv-njl-dev.vault.azure.net/"
+		},
+		"LS_ADLS_ORACLE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageoraclenjl.dfs.core.windows.net/"
+		},
 		"LS_KEY_VALUT_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://kv-njl-dev.vault.azure.net/"
+		},
+		"dataFactory_properties_globalParameters_GP_KV_NAME_value": {
+			"type": "string",
+			"defaultValue": "LS_DYNAMIC_KV_NAME"
+		},
+		"dataFactory_location": {
+			"type": "string",
+			"defaultValue": "centralus"
+		},
+		"dataFactory_identity_type": {
+			"type": "string",
+			"defaultValue": "SystemAssigned"
 		},
 		"containerUri": {
 			"type": "string",
@@ -42,8 +78,29 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"LS_SQL_DB_connectionString": {
-						"value": "[parameters('LS_SQL_DB_connectionString')]"
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"dataFactory_properties_globalParameters_GP_KV_NAME_value": {
+						"value": "[parameters('dataFactory_properties_globalParameters_GP_KV_NAME_value')]"
+					},
+					"dataFactory_location": {
+						"value": "[parameters('dataFactory_location')]"
+					},
+					"dataFactory_identity_type": {
+						"value": "[parameters('dataFactory_identity_type')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"LS_ADLS_ORACLE_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_ORACLE_properties_typeProperties_url')]"
 					},
 					"LS_KEY_VALUT_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LS_KEY_VALUT_properties_typeProperties_baseUrl')]"
@@ -51,6 +108,32 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adf-showcase-dev_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_SQL_DB_connectionString": {
+						"value": "[parameters('LS_SQL_DB_connectionString')]"
+					},
+					"Oracle1_connectionString": {
+						"value": "[parameters('Oracle1_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-showcase-dev_ArmTemplate_0')]"
+			]
 		}
 	]
 }
