@@ -1,0 +1,93 @@
+{
+	"name": "PL_DYNAMIC_SCHEMA_AND_ORDINAL_MAPPING__MAPPING_TEST_COPY_DATA_ORACLE_TO_ADLS_2_copy2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Oracle to SQL Sink",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Lookup Schema From SQL Table",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"value": "@json(activity('Lookup Schema From SQL Table').output.firstRow.jsonSchema)",
+						"type": "Expression"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_ORACLE_LOCAL",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_ORACLE_2_TABLE",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Lookup Schema From SQL Table",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "SELECT jsonSchema FROM schema_mapping2 WHERE schemaid = @{pipeline().parameters.PL_SCHEMA_ID}",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "DS_SQL_SCHEMA_MAPPING_TABLE",
+						"type": "DatasetReference"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"PL_SCHEMA_ID": {
+				"type": "string",
+				"defaultValue": "1"
+			}
+		},
+		"folder": {
+			"name": "Oracle"
+		},
+		"annotations": []
+	}
+}

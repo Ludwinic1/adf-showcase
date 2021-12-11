@@ -1,0 +1,35 @@
+{
+	"name": "DF_TRANSFORM",
+	"properties": {
+		"folder": {
+			"name": "Transform Test DF"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_ORACLE_2_TABLE",
+						"type": "DatasetReference"
+					},
+					"name": "OracleInput"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_ORACLE_SINK_ADLS",
+						"type": "DatasetReference"
+					},
+					"name": "ADLSSINK"
+				}
+			],
+			"transformations": [
+				{
+					"name": "AdditionalColumn"
+				}
+			],
+			"script": "source(output(\n\t\tID as integer,\n\t\tname as string,\n\t\tother as integer,\n\t\tnum_col as integer\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> OracleInput\nOracleInput derive(Added_column = 1,\n\t\tother = toString(other)) ~> AdditionalColumn\nAdditionalColumn sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionFileNames:['updated_oracle_file_adls'],\n\tumask: 0022,\n\tpreCommands: [],\n\tpostCommands: [],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpartitionBy('hash', 1)) ~> ADLSSINK"
+		}
+	}
+}

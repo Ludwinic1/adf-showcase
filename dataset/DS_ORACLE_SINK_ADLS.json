@@ -1,0 +1,26 @@
+{
+	"name": "DS_ORACLE_SINK_ADLS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_ORACLE",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Oracle"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "first",
+				"fileSystem": "first-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

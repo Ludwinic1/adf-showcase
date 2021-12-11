@@ -1,0 +1,15 @@
+{
+	"name": "AzureKeyVault1",
+	"properties": {
+		"type": "AzureKeyVault",
+		"annotations": [],
+		"parameters": {
+			"kv_name": {
+				"type": "string"
+			}
+		},
+		"typeProperties": {
+			"baseUrl": "https://kv-njl-dev.vault.azure.net/"
+		}
+	}
+}

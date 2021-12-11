@@ -1,5 +1,13 @@
 {
 	"name": "adf-showcase-dev",
+	"properties": {
+		"globalParameters": {
+			"GP_KV_NAME": {
+				"type": "string",
+				"value": "LS_DYNAMIC_KV_NAME"
+			}
+		}
+	},
 	"location": "centralus",
 	"identity": {
 		"type": "SystemAssigned",
